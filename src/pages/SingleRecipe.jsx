@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { recipecontext } from "../Context/RecipeContext";
-import { useContext } from "react";
+import { useContext, useEffect} from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
@@ -33,6 +33,14 @@ const SingleRecipe = () => {
     toast.success("recipe Deleted!");
     navigate("/recipes");
   };
+  
+  useEffect(() => {
+    console.log("Mounted");
+    return () => {
+      console.log("Unmounted");
+    };
+
+  }, []);
 
   return recipe ? (
     <div className="w-full flex">
