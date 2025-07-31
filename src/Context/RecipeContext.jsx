@@ -4,7 +4,19 @@ export const recipecontext = createContext(null);
 
 const RecipeContext = (props) => {
         const[data, setData] = useState([
-          {
+    
+        ]);
+        
+
+  return (
+    <recipecontext.Provider value={{data, setData}}>
+       {props.children}
+    </recipecontext.Provider>
+  );
+};
+export default RecipeContext;
+
+/*{
   id: 1,
   title: "Classic Margherita Pizza",
   ingredients: [
@@ -26,14 +38,4 @@ const RecipeContext = (props) => {
   imageUrl: "https://cdn.dummyjson.com/recipe-images/1.webp",
    Chef: "Ajel Mathew",
    category: "main course",
-}
-        ]);
-        
-
-  return (
-    <recipecontext.Provider value={{data, setData}}>
-       {props.children}
-    </recipecontext.Provider>
-  );
-};
-export default RecipeContext;
+}*/
